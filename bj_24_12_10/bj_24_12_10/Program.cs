@@ -3,7 +3,8 @@
     static void Main(string[] args)
     {
         var input = new StreamReader(Console.OpenStandardInput());
-        var output = new StreamWriter(Console.OpenStandardOutput());
+        var result = new System.Text.StringBuilder();
+
         int n = int.Parse(input.ReadLine());
         PriorityQueue<(int x, int y), (int y, int x)> pair = new PriorityQueue<(int x, int y), (int y, int x)>(n);
 
@@ -17,13 +18,11 @@
             pair.Enqueue((x, y), (y, x));
         }
 
-        var result = new System.Text.StringBuilder();
         for (int i = 0; i < n; i++)
         {
             (int x, int y) = pair.Dequeue();
             result.AppendLine(x + " " + y);
         }
-        output.Write(result.ToString());
-        output.Flush();
+        Console.WriteLine(result.ToString());
     }
 }
