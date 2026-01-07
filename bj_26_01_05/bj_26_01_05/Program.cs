@@ -1,12 +1,16 @@
-﻿internal class Program
+﻿using System.Numerics;
+
+internal class Program
 {
     static void Main()
     {
         var isr = new StreamReader(Console.OpenStandardInput());
 
-        int a = int.Parse(isr.ReadLine());
-        int b = int.Parse(isr.ReadLine());
+        string[] input = isr.ReadLine().Split().ToArray();
+        BigInteger a = BigInteger.Parse(input[0]);
+        BigInteger b = BigInteger.Parse(input[1]);
 
-        Console.WriteLine(b + b - a);
+        BigInteger result = a * b;
+        Console.WriteLine(result);
     }
 }
